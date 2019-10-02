@@ -11,6 +11,7 @@ import UIKit
 
 class EditarContactoController : UIViewController{
     
+    var callbackActualizarTabla: (()-> Void)?
     var contacto: Contacto?
     
     
@@ -23,7 +24,9 @@ class EditarContactoController : UIViewController{
     }
     
     @IBAction func btnGuardar(_ sender: Any) {
-        
+        contacto?.nombre = txtNombre.text
+        contacto?.telefono = txtTelefono.text
+        callbackActualizarTabla!()
     
     }
     

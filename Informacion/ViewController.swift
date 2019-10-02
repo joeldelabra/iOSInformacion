@@ -48,11 +48,19 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
     @IBOutlet weak var tvContactos: UITableView!
     
+    
+    
+    func recargarTabla(){
+        tvContactos.reloadData()
+    }
+    
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "GoToEditar"{
         let destino =  segue.destination as? EditarContactoController
             
          destino?.contacto = contactos[tvContactos.indexPathForSelectedRow!.row]
+            destino?.callbackActualizarTabla = recargarTabla
         }
     }
     
