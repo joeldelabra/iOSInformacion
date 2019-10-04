@@ -62,8 +62,27 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
          destino?.contacto = contactos[tvContactos.indexPathForSelectedRow!.row]
             destino?.callbackActualizarTabla = recargarTabla
         }
+        else if segue.identifier == "GoToNuevo" {
+            let destino =  segue.destination as? EditarContactoController
+            
+            contactos.append(Contacto(nombre: "", telefono: "", direccion: "", correo: "", foto: ""))
+            
+           
+            destino?.contacto = contactos[contactos.count-1]
+            destino?.callbackActualizarTabla = recargarTabla
+            
+            
+            
+            
+        }
     }
     
+    @IBAction func DoTapAgregar(_ sender: Any) {
+        
+         contactos.append(Contacto(nombre: "Nuevo", telefono: "Nuevo telefono", direccion: "Nueva Direccion", correo: "Nuevo correo", foto: "Adam"))
+        
+        tvContactos.reloadData()
+    }
     
 }
 

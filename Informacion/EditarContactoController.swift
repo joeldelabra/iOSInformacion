@@ -1,11 +1,3 @@
-//
-//  EditarContactoController.swift
-//  Informacion
-//
-//  Created by Alumno on 10/1/19.
-//  Copyright © 2019 Alumno. All rights reserved.
-//
-
 import Foundation
 import UIKit
 
@@ -27,8 +19,10 @@ class EditarContactoController : UIViewController{
         contacto?.nombre = txtNombre.text
         contacto?.telefono = txtTelefono.text
         callbackActualizarTabla!()
-    
+        self.navigationController?.popViewController(animated: true)
     }
+    
+    
     
     
     
